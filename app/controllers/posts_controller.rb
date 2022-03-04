@@ -18,6 +18,13 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to '/', :notice => "Ypur post has been deleted"
+  end
+
+
   private 
 
   def post_params

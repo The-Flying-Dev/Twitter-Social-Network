@@ -16,6 +16,7 @@ gem 'jbuilder', '~> 2.5'
 
 
 gem 'devise'
+gem 'acts_as_votable', '~> 0.13.2'
 
 
 
