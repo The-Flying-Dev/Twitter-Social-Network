@@ -8,7 +8,7 @@ class PostsController < ApplicationController
     @post = Post.new 
   end 
 
-  def create 
+  def create     
     @post = Post.new(post_params)
     @post.user_id = current_user.id 
     if @post.save
@@ -21,8 +21,21 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to '/', :notice => "Ypur post has been deleted"
+    redirect_to '/', :notice => "Your post has been deleted"
   end
+
+
+  def like 
+    @post = Post.find(params[:id])
+    @post.liked_by current_user
+    redirect_to '/'
+  end
+
+  def dislike 
+    @post = Post.find(params[:id])
+    @post.dislike_by current_user
+    redirect_to '/'
+  end 
 
 
   private 

@@ -2,9 +2,14 @@ Rails.application.routes.draw do
 
   root to: 'posts#index'
   devise_for :users
-
-  resources :posts
-    resources :users do
+  
+  
+  #member routes used when id / extra route is needed from the model 
+  resources :posts do 
+    member do  #controller actions to route
+      put "like", to: "posts#like"
+      put "dislike", to: "posts#dislike"
+    end 
   end
 
   resources :users do

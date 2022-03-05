@@ -1,7 +1,7 @@
 <p class="navbar-text">
-  <span>Social Network</span>
+  <span><%= link_to 'Social Network', root_path %></span>
   <% if user_signed_in? %>
-    Logged in as <strong><%= current_user.email %></strong>.
+    Logged in as <strong><%= current_user.username %></strong>.
     <%= link_to 'My profile', user_profile_path(current_user.id), :class => 'navbar-link' %> |
     <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
     <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>

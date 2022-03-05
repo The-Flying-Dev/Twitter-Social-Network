@@ -1,8 +1,16 @@
 class UsersController < ApplicationController
   
+  
   def profile
-    @user_id = params[:id]
+    @userid = params[:user_id]
     @userinfo = User.find(params[:user_id])
-    @usercount = @userinfo.posts
+    @usercount = @userinfo.posts    
     @posts = Post.all
+  end 
+
+  
+
+ 
+  
+  
 end
